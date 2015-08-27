@@ -1,0 +1,105 @@
+<!--
+  Copyright 2015 St. Wissel, JackyB
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="enigma">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-field"><i class="fa fa-tag"></i> Property</label>
+        <input type="text" id="node-input-field" placeholder="payload">
+    </div>
+	<h4>Rotary keys</h4>
+    <div class="form-row">
+        <label for="node-input-rotary1"><i class="fa fa-tag"></i> Rotary 1</label>
+        <input type="text" id="node-input-rotary1">
+    </div>
+     <div class="form-row">
+        <label for="node-input-rotary2"><i class="fa fa-tag"></i> Rotary 2</label>
+        <input type="text" id="node-input-rotary2">
+    </div>
+     <div class="form-row">
+        <label for="node-input-rotary3"><i class="fa fa-tag"></i> Rotary 3</label>
+        <input type="text" id="node-input-rotary3">
+    </div>
+	<h4>Reflector keys</h4>
+    <div class="form-row">
+        <label for="node-input-reflector1"><i class="fa fa-tag"></i> Reflector 1</label>
+        <input type="text" id="node-input-reflector1">
+    </div>
+     <div class="form-row">
+        <label for="node-input-reflector2"><i class="fa fa-tag"></i> Reflector 2</label>
+        <input type="text" id="node-input-reflector2">
+    </div>
+     <div class="form-row">
+        <label for="node-input-reflector3"><i class="fa fa-tag"></i> Reflector 3</label>
+        <input type="text" id="node-input-reflector3">
+    </div>
+    <h4>Notch</h4>
+     <div class="form-row">
+        <label for="node-input-notch"><i class="fa fa-tag"></i>3 chars</label>
+        <input type="text" id="node-input-notch" placeholder="QEV">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="enigma">
+	
+   <p>Runs a string through an ENIGMA encryption. Cleartext gets encrypted, crypto gets decrypted</p>
+  
+  <h3>Keys</h3>
+  
+   <p>Currently hardcoded, keys get ignored</p>
+   <strike>
+   <ul>
+   <li>The property <code>msg.rotary</code> overwrites the Rotary keys. It must be an array of 3 elements with 26 unique uppercase characters each</li>
+   <li>The property <code>msg.reflector</code> overwrites the reflector keys. It must be an array of 3 elements with 26 unique uppercase characters each</li>
+   <li>The property <code>msg.notch</code> overwrites the notch. It must be an array of 3 elements with one uppercase character each</li>
+   </ul>
+   </strike>
+   <p>The node uses a visual indicator to show the result of the last enigma operation in the UI</p>
+</script>
+
+<!-- Finally, the node type is registered along with all of its properties   -->
+<!-- The example below shows a small subset of the properties that can be set-->
+<script type="text/javascript">
+	/* TODO: Key Generator */
+	
+    RED.nodes.registerType('enigma',{
+        category: 'Encryption', 
+        defaults: {
+            name: {value:""},
+            field: {value:"payload"},
+            rotary1: {value:""},
+            rotary2: {value:""},
+            reflector3: {value:""},
+            reflector1: {value:""},
+            reflector2: {value:""},
+            reflector3: {value:""},
+            notch: {value:"QEV"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "enigma.png",
+        color : "#ffffdd",
+        label: function() {     // sets the default label contents
+            return this.name||"enigma";
+        },
+        labelStyle: function() { // sets the class to apply to the label
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>
