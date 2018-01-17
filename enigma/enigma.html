@@ -54,6 +54,7 @@
         <label for="node-input-notch"><i class="fa fa-tag"></i>3 chars</label>
         <input type="text" id="node-input-notch" placeholder="QEV">
     </div>
+    <!-- TODO: add buttons to verify/generate Rotary and reflector --> 
 </script>
 
 <script type="text/x-red" data-help-name="enigma">
@@ -62,19 +63,16 @@
   
   <h3>Keys</h3>
   
-   <p>Currently hardcoded, keys get ignored</p>
-   <strike>
    <ul>
-   <li>The property <code>msg.rotary</code> overwrites the Rotary keys. It must be an array of 3 elements with 26 unique uppercase characters each</li>
-   <li>The property <code>msg.reflector</code> overwrites the reflector keys. It must be an array of 3 elements with 26 unique uppercase characters each</li>
+   <li>The property <code>msg.rotary</code> overwrites the Rotary keys. It must be an array of 3 elements with 28 unique uppercase characters each and one space (not at the beginning or end) and one dot</li>
+   <li>The property <code>msg.reflector</code> overwrites the reflector keys. It must be an array of 3 elements with 28 unique uppercase characters each and one space (not at the beginning or end) and one dot</li>
    <li>The property <code>msg.notch</code> overwrites the notch. It must be an array of 3 elements with one uppercase character each</li>
+   <li>The space and dot (.) are an extension to the orginal Enigma capabilities to make messages more readable</li>
    </ul>
-   </strike>
+  
    <p>The node uses a visual indicator to show the result of the last enigma operation in the UI</p>
 </script>
 
-<!-- Finally, the node type is registered along with all of its properties   -->
-<!-- The example below shows a small subset of the properties that can be set-->
 <script type="text/javascript">
 	/* TODO: Key Generator */
 	

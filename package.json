@@ -1,13 +1,13 @@
 {
     "name"         : "node-red-contrib-enigma",
-    "version"      : "0.0.1",
+    "version"      : "0.1.0",
     "description"  : "Encrypts / decrypts payloads using a JS Enigma engine, Code breaking using a JS Bombe - the immitation game",
     "dependencies" : {},
     "keywords"     : [ "node-red", "encryption", "codebreaker", "flow", "json" ],
     "node-red"     : {
         "nodes": {
-					 "enigma": "enigma/enigma.js" /*,
-					 "bombe": "enigma/bombe.js" */
+					 "enigma": "enigma/enigma.js" ,
+					 "bombe": "enigma/bombe.js"
         }
     },
     "repository"   : {
